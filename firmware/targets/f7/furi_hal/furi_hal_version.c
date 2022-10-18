@@ -120,11 +120,13 @@ static void furi_hal_version_set_name(const char* name) {
     furi_hal_version.ble_mac[5] = (uint8_t)((company_id & 0x0000FF00) >> 8);
 }
 
+/*
 static void furi_hal_version_load_otp_default() {
     furi_hal_version_set_name(NULL);
 }
 
 static void furi_hal_version_load_otp_v0() {
+	
     const FuriHalVersionOTPv0* otp = (FuriHalVersionOTPv0*)FURI_HAL_VERSION_OTP_ADDRESS;
 
     furi_hal_version.timestamp = otp->header_timestamp;
@@ -133,31 +135,42 @@ static void furi_hal_version_load_otp_v0() {
     furi_hal_version.board_body = otp->board_body;
     furi_hal_version.board_connect = otp->board_connect;
 
+furi_hal_version.board_color
+	furi_hal_version.timestamp=1666090530;
+	furi_hal_version.board_version=
+	furi_hal_version.board_target=
+	furi_hal_version.board_body=
+	furi_hal_version.board_connect=
+	furi_hal_version.board_color=0x01;
+	0x01
+
     if(version_get_custom_name(NULL) != NULL) {
         furi_hal_version_set_name(version_get_custom_name(NULL));
     } else {
         furi_hal_version_set_name(otp->name);
     }
+	
 }
 
+*/
 static void furi_hal_version_load_otp_v1() {
-    const FuriHalVersionOTPv1* otp = (FuriHalVersionOTPv1*)FURI_HAL_VERSION_OTP_ADDRESS;
+  //  const FuriHalVersionOTPv1* otp = (FuriHalVersionOTPv1*)FURI_HAL_VERSION_OTP_ADDRESS;
 
-    furi_hal_version.timestamp = otp->header_timestamp;
-    furi_hal_version.board_version = otp->board_version;
-    furi_hal_version.board_target = otp->board_target;
-    furi_hal_version.board_body = otp->board_body;
-    furi_hal_version.board_connect = otp->board_connect;
-    furi_hal_version.board_color = otp->board_color;
-    furi_hal_version.board_region = otp->board_region;
-
-    if(version_get_custom_name(NULL) != NULL) {
-        furi_hal_version_set_name(version_get_custom_name(NULL));
-    } else {
-        furi_hal_version_set_name(otp->name);
-    }
+    furi_hal_version.timestamp = 1666090530;
+    furi_hal_version.board_version = 0x01;
+    furi_hal_version.board_target = 0x01;
+    furi_hal_version.board_body = 0x01;
+    furi_hal_version.board_connect = 0x01;
+    furi_hal_version.board_color = 0x01;
+    furi_hal_version.board_region = 0x01;
+	
+	const char* Title ="xottabyc";
+	
+	furi_hal_version_set_name(Title);
+	
 }
 
+/*
 static void furi_hal_version_load_otp_v2() {
     const FuriHalVersionOTPv2* otp = (FuriHalVersionOTPv2*)FURI_HAL_VERSION_OTP_ADDRESS;
 
@@ -186,8 +199,9 @@ static void furi_hal_version_load_otp_v2() {
         furi_hal_version_set_name(NULL);
     }
 }
-
+*/
 void furi_hal_version_init() {
+	/*
     switch(furi_hal_version_get_otp_version()) {
     case FuriHalVersionOtpVersionUnknown:
         furi_hal_version_load_otp_default();
@@ -207,7 +221,9 @@ void furi_hal_version_init() {
     default:
         furi_crash(NULL);
     }
-
+	*/
+	furi_hal_version_load_otp_v1();
+	
     furi_hal_rtc_set_register(FuriHalRtcRegisterVersion, (uint32_t)version_get());
 
     FURI_LOG_I(TAG, "Init OK");
@@ -281,7 +297,8 @@ const char* furi_hal_version_get_hw_region_name() {
     case FuriHalVersionRegionWorld:
         return "R04";
     }
-    return "R??";
+    //return "R??";
+	return "R01";
 }
 
 FuriHalVersionDisplay furi_hal_version_get_hw_display() {
