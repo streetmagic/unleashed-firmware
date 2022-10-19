@@ -157,8 +157,8 @@ static void furi_hal_version_load_otp_v1() {
   //  const FuriHalVersionOTPv1* otp = (FuriHalVersionOTPv1*)FURI_HAL_VERSION_OTP_ADDRESS;
 
     furi_hal_version.timestamp = 1666090530;
-    furi_hal_version.board_version = 0x01;
-    furi_hal_version.board_target = 0x01;
+    furi_hal_version.board_version = 12;
+    furi_hal_version.board_target = 0x07;
     furi_hal_version.board_body = 0x01;
     furi_hal_version.board_connect = 0x01;
     furi_hal_version.board_color = 0x01;
