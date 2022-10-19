@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Cortex Debug",
+            "cwd": "${workspaceFolder}",
+            "executable": "C:/BLE/flipper/unleashed-firmware/dist/f7-D/flipper-z-f7-firmware-local.elf",
+            "request": "attach",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": ["interface/stlink.cfg", "C:/BLE/flipper/unleashed-firmware/debug/stm32wbx.cfg"],
+            "openOCDLaunchCommands": ["transport select hla_swd", "init"],
+        }
+    ]
+}
