@@ -10,6 +10,7 @@
 #define LED_CURRENT_WHITE 150
 
 void furi_hal_light_init() {
+    /*
     furi_hal_i2c_acquire(&furi_hal_i2c_handle_power);
 
     lp5562_reset(&furi_hal_i2c_handle_power);
@@ -28,9 +29,15 @@ void furi_hal_light_init() {
     lp5562_configure(&furi_hal_i2c_handle_power);
 
     furi_hal_i2c_release(&furi_hal_i2c_handle_power);
+    */
 }
 
 void furi_hal_light_set(Light light, uint8_t value) {
+
+    if(light & value) {
+       
+    }
+    /*
     furi_hal_i2c_acquire(&furi_hal_i2c_handle_power);
     if(light & LightRed) {
         lp5562_set_channel_value(&furi_hal_i2c_handle_power, LP5562ChannelRed, value);
@@ -47,9 +54,14 @@ void furi_hal_light_set(Light light, uint8_t value) {
             &furi_hal_i2c_handle_power, LP5562Engine1, LP5562ChannelWhite, prev, value, 100);
     }
     furi_hal_i2c_release(&furi_hal_i2c_handle_power);
+    */
 }
 
 void furi_hal_light_blink_start(Light light, uint8_t brightness, uint16_t on_time, uint16_t period) {
+    if(light & brightness & on_time & period) {
+       
+    }
+    /*
     furi_hal_i2c_acquire(&furi_hal_i2c_handle_power);
     lp5562_set_channel_src(
         &furi_hal_i2c_handle_power,
@@ -62,9 +74,11 @@ void furi_hal_light_blink_start(Light light, uint8_t brightness, uint16_t on_tim
     lp5562_execute_blink(
         &furi_hal_i2c_handle_power, LP5562Engine2, led_ch, on_time, period, brightness);
     furi_hal_i2c_release(&furi_hal_i2c_handle_power);
+    */
 }
 
 void furi_hal_light_blink_stop() {
+    /*
     furi_hal_i2c_acquire(&furi_hal_i2c_handle_power);
     lp5562_set_channel_src(
         &furi_hal_i2c_handle_power,
@@ -72,9 +86,14 @@ void furi_hal_light_blink_stop() {
         LP5562Direct);
     lp5562_stop_program(&furi_hal_i2c_handle_power, LP5562Engine2);
     furi_hal_i2c_release(&furi_hal_i2c_handle_power);
+    */
 }
 
 void furi_hal_light_blink_set_color(Light light) {
+     if(light ) {
+       
+    }
+    /*
     furi_hal_i2c_acquire(&furi_hal_i2c_handle_power);
     LP5562Channel led_ch = 0;
     lp5562_set_channel_src(
@@ -86,9 +105,14 @@ void furi_hal_light_blink_set_color(Light light) {
     if(light & LightBlue) led_ch |= LP5562ChannelBlue;
     lp5562_set_channel_src(&furi_hal_i2c_handle_power, led_ch, LP5562Engine2);
     furi_hal_i2c_release(&furi_hal_i2c_handle_power);
+    */
 }
 
 void furi_hal_light_sequence(const char* sequence) {
+     if(sequence) {
+       
+    }
+    /*
     do {
         if(*sequence == 'R') {
             furi_hal_light_set(LightRed, 0xFF);
@@ -113,4 +137,6 @@ void furi_hal_light_sequence(const char* sequence) {
         }
         sequence++;
     } while(*sequence != 0);
+
+    */
 }
