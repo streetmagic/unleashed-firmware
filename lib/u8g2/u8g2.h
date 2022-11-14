@@ -395,7 +395,7 @@ extern const u8g2_cb_t u8g2_cb_r2;
 extern const u8g2_cb_t u8g2_cb_r3;
 extern const u8g2_cb_t u8g2_cb_mirror;
 
-#define U8G2_R0 (&u8g2_cb_r0)
+#define U8G2_R0 (&u8g2_cb_mirror)
 #define U8G2_R1 (&u8g2_cb_r1)
 #define U8G2_R2 (&u8g2_cb_r2)
 #define U8G2_R3 (&u8g2_cb_r3)
