@@ -195,6 +195,7 @@ sources.extend(
 
 fwenv.AppendUnique(
     LINKFLAGS=[
+       
         "-specs=nano.specs",
         "-specs=nosys.specs",
         "-Wl,--gc-sections",
